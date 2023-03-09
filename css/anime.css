@@ -1,0 +1,14 @@
+.left {
+    animation: left-animation 0.3s ease;
+}
+
+@keyframes left-animation {
+    0% {
+        transform: translateX(-400px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}

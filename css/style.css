@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.left {
+    width: 30%;
+    height: 100vh;
+}
+
+.right {
+    width: 70%;
+    height: 100vh;  
+    background-image: url('../images/758246.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.left-top {
+    background-color: #3390ec;
+    width: 100%;
+    height: 70px;
+    align-items: center;
+    display: flex;
+}
+
+.left-top h1 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    padding-left: 20px;
+}
+
+.left-bottom {
+    width: 100%;
+    background-color: white;
+}
+
+.render-chats {
+    background-color: white;
+    height: 60px;
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.render-chats img {
+    width: 30px;
+    border-radius: 30px;
+}
+
+.render-chats h1 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.render-chats:hover {
+    color: white;
+    background-color: #3390ec;
+    cursor: pointer;
+}
+
+.render-chats:active {
+    opacity: 0.5;
+}
+
+.right-top {
+    background-color: green;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    display: flex;
+    background-color: #3390ec;
+    color: white;
+}
+
+.user_profile {
+    width: 40px;
+    border-radius: 30px;
+    margin-left: 20px;
+}
+
+.right-bottom {
+    background-color: grey;
+    width: 100%;
+    height: 10%;
+}
+
+.message {
+    height: max-content;
+    width: max-content;
+    color: white;
+    padding: 10px;
+}
+
+.right-top h1 {
+    background-color: #3390ec;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.arrow-left {
+    width: 20px;
+    margin-left: 10px;
+    transform: rotate(90deg);
+    cursor: pointer;
+    display: none;
+}
+
+.arrow-right {
+    width: 20px;
+    margin-left: 10px;
+    transform: rotate(-90deg);
+    cursor: pointer;
+}
+
+.right-center {
+    height: 80%;
+    overflow: auto;
+}
+
+.my-message {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.other-message {
+    width: 100%;
+}
+
+.my-message div {
+    margin-top: 5px;
+    margin-right: 10px;
+    background-color: rgba(51,144,236, 0.9);
+    padding: 5px 20px 5px 20px;
+    border-radius: 20px;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.other-message div {
+    margin-top: 5px;
+    margin-left: 10px;
+    width: min-content;
+    background-color: rgba(91, 91, 91, 0.9);
+    padding: 5px 20px 5px 20px;
+    border-radius: 20px;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}   
+
+
+.message-writer {
+    width: 97%;
+    height: 100%;
+    background-color: rgb(201, 201, 201);
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: black;
+    font-size: 20px;
+}

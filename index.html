@@ -5,11 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TelegramDemo</title>
+    <link rel="stylesheet" href="./css/anime.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-    <div class="box">
-        This is your information!
+<body style="display: flex;">
+    <div class="left">
+        <div class="left-top">
+            <h1>Telegram</h1>
+        </div>
+        <div class="left-bottom">
+            <div class="render-chats">
+                <img src="https://source.unsplash.com/random/200x200?sig=1" alt="">
+                <h1>User1</h1>
+            </div>
+            <div class="render-chats">
+                <img src="https://source.unsplash.com/random/200x200?sig=2" alt="">
+                <h1>User2</h1>
+            </div>
+            <div class="render-chats">
+                <img src="https://source.unsplash.com/random/200x200?sig=3" alt="">
+                <h1>User3</h1>
+            </div>
+            <div class="render-chats">
+                <img src="https://source.unsplash.com/random/200x200?sig=4" alt="">
+                <h1>User4</h1>
+            </div>
+            <div class="render-chats">
+                <img src="https://source.unsplash.com/random/200x200?sig=5" alt="">
+                <h1>User5</h1>
+            </div>
+            <div class="render-chats">
+                <img src="https://source.unsplash.com/random/200x200?sig=6" alt="">
+                <h1>User6</h1>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="right-top">
+            <img onclick="closeChats()" class="arrow-right" src="https://img.icons8.com/metro/26/null/long-arrow-up.png"/>
+            <img onclick="openChats()" class="arrow-left" src="https://img.icons8.com/metro/26/null/long-arrow-up.png"/>
+            <img class="user_profile" src="https://source.unsplash.com/random/200x200?sig=1" alt="">
+            <h1>User1</h1>
+        </div>
+        <div class="right-center">
+            <div class="my-message">
+                <div>Assalomu Alaykum</div>
+            </div>
+            <div class="other-message">
+                <div>Vaalaykum Assalom</div>
+            </div>
+            <div class="my-message">
+                <div>Ishla qale?</div>
+            </div>
+            <div class="other-message">
+                <div>Zorku</div>
+            </div>
+            <div class="my-message">
+                <div>Zor bosa zorde</div>
+            </div>
+            <div class="other-message">
+                <div>salom</div>
+            </div>
+            <div class="my-message">
+                <div>Salom</div>
+            </div>
+            <div class="other-message">
+                <div>Salom</div>
+            </div>
+            <div class="my-message">
+                <div>Salom</div>
+            </div>
+            <div class="other-message">
+                <div>Salom</div>
+            </div>
+        </div>
+        <div class="right-bottom">
+            <input class="message-writer" type="text" placeholder="Write your message here...">
+        </div>
     </div>
     <script src="./script/auto.js"></script>
+    <script src="./script/script.js"></script>
 </body>
 </html>
