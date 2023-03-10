@@ -20,10 +20,11 @@ function closeChats(){
 }
 
 function openMessages(){
+    messages.style.display = "block" 
     arrowLeft.style.display = "block"
     arrowRight.style.display = "none"
     chats.style.display = "none"
-    messages.style.width = "100%"   
+    messages.style.width = "100%"  
 }
 
 if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
