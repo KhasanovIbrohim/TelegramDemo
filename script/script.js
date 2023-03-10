@@ -47,10 +47,10 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     arrowRight.style.display = "none";
     arrowLeft.style.display = "none";
     arrowRightM.style.display = "block";
-    arrowLeftM.style.display = "block";
+    arrowLeftM.style.display = "none";
 } else {
     arrowRight.style.display = "block";
-    arrowLeft.style.display = "block";
+    arrowLeft.style.display = "none";
     arrowRightM.style.display = "none";
     arrowLeftM.style.display = "none";
 }
