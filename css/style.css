@@ -122,6 +122,21 @@
     cursor: pointer;
 }
 
+.arrow-right-m {
+    width: 20px;
+    margin-left: 10px;
+    transform: rotate(-90deg);
+    cursor: pointer;
+}
+
+.arrow-left-m {
+    width: 20px;
+    margin-left: 10px;
+    transform: rotate(90deg);
+    cursor: pointer;
+    display: none;
+}
+
 .right-center {
     height: 80%;
     overflow: auto;

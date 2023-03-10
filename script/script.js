@@ -21,8 +21,8 @@ function closeChats(){
 
 function openMessages(){
     messages.style.display = "block" 
-    arrowLeft.style.display = "block"
-    arrowRight.style.display = "none"
+    arrowLeftM.style.display = "block"
+    arrowRightM.style.display = "none"
     chats.style.display = "none"
     messages.style.width = "100%"  
 }
@@ -31,7 +31,8 @@ function openChatsM(){
     arrowLeftM.style.display = "none"
     arrowRightM.style.display = "block"
     chats.style.display = "block"
-    messages.style.width = "100%"
+    messages.style.display = "none"
+    chats.style.width = '100%'
 }
 
 function closeChatsM(){
@@ -41,16 +42,23 @@ function closeChatsM(){
     messages.style.width = "100%"
 }
 
-if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    chats.style.width = "100%";
+chats.style.width = "100%";
     messages.style.display = "none";
     arrowRight.style.display = "none";
     arrowLeft.style.display = "none";
     arrowRightM.style.display = "block";
     arrowLeftM.style.display = "none";
-} else {
-    arrowRight.style.display = "block";
-    arrowLeft.style.display = "none";
-    arrowRightM.style.display = "none";
-    arrowLeftM.style.display = "none";
-}
+
+// if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+//     chats.style.width = "100%";
+//     messages.style.display = "none";
+//     arrowRight.style.display = "none";
+//     arrowLeft.style.display = "none";
+//     arrowRightM.style.display = "block";
+//     arrowLeftM.style.display = "none";
+// } else {
+//     arrowRight.style.display = "block";
+//     arrowLeft.style.display = "none";
+//     arrowRightM.style.display = "none";
+//     arrowLeftM.style.display = "none";
+// }
