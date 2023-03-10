@@ -61,3 +61,29 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     arrowLeftM.style.display = "none";
     localStorage.setItem("isMobile", /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 }
+
+var createMessage = document.getElementById("create-message");
+const rightCenter = document.querySelector('.right-center')
+
+createMessage.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    var inputValue = event.target.value;
+    const myMessage = document.createElement("div")
+    myMessage.className = "my-message"
+    const messageText = document.createElement("div")
+    messageText.textContent = inputValue;
+    createMessage.value = ""
+    myMessage.appendChild(messageText)
+    rightCenter.appendChild(myMessage)
+  }
+});
+
+function sendMessageByButton(){
+    const myMessage = document.createElement("div")
+    myMessage.className = "my-message"
+    const messageText = document.createElement("div")
+    messageText.textContent = createMessage.value;
+    createMessage.value = ""
+    myMessage.appendChild(messageText)
+    rightCenter.appendChild(myMessage)
+}

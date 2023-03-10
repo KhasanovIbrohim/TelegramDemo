@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body style="display: flex;">
+    <div class="settings">
+        <h1 class="settings-theme-title">Theme</h1>
+        <button class="settings-light">Light Theme</button>
+        <button class="settings-dark">Night Theme</button>
+    </div>
     <div class="left">
         <div class="left-top">
             <h1>Telegram</h1>
@@ -79,11 +84,12 @@
                 <div>Salom</div>
             </div>
             <div class="other-message">
-                <div>Salom</div>
+                <div>😉</div>
             </div>
         </div>
         <div class="right-bottom">
-            <input class="message-writer" type="text" placeholder="Write your message here...">
+            <input class="message-writer" id="create-message" type="text" placeholder="Write your message here...">
+            <button class="message-sender" id="send-message" onclick="sendMessageByButton()">SEND</button>
         </div>
     </div>
     <script src="./script/auto.js"></script>
