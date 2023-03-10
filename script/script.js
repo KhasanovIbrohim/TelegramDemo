@@ -42,23 +42,16 @@ function closeChatsM(){
     messages.style.width = "100%"
 }
 
-chats.style.width = "100%";
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    chats.style.width = "100%";
     messages.style.display = "none";
     arrowRight.style.display = "none";
     arrowLeft.style.display = "none";
     arrowRightM.style.display = "block";
     arrowLeftM.style.display = "none";
-
-// if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-//     chats.style.width = "100%";
-//     messages.style.display = "none";
-//     arrowRight.style.display = "none";
-//     arrowLeft.style.display = "none";
-//     arrowRightM.style.display = "block";
-//     arrowLeftM.style.display = "none";
-// } else {
-//     arrowRight.style.display = "block";
-//     arrowLeft.style.display = "none";
-//     arrowRightM.style.display = "none";
-//     arrowLeftM.style.display = "none";
-// }
+} else {
+    arrowRight.style.display = "block";
+    arrowLeft.style.display = "none";
+    arrowRightM.style.display = "none";
+    arrowLeftM.style.display = "none";
+}
