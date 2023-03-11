@@ -18,10 +18,30 @@
             <button onclick="openSettings(false)" class="settings-back"><img
                     src="https://img.icons8.com/pastel-glyph/64/3390ec/circled-left.png" /></button>
         </div>
+        <h1 class="settings-table-title">Biography</h1>
+        <img class="setting-bio-photo" src="https://source.unsplash.com/random/400x400?sig=1" alt="">
+        <div class="settings-table">
+            <button class="settings-light" onclick="setTheme('light')">User1</button>
+            <button class="settings-light" style="margin-left: 10px;" onclick="setTheme('dark')">@username1</button>   
+            <button class="settings-light" style="margin-left: 10px;" onclick="setTheme('dark')">Volk ne tot kto lev a tot kto volk</button>   
+        </div>
         <h1 class="settings-table-title">Themes</h1>
         <div class="settings-table">
             <button class="settings-light" onclick="setTheme('light')">Light Theme</button>
             <button class="settings-dark" onclick="setTheme('dark')">Night Theme</button>
+        </div>
+        <h1 class="settings-table-title">Create</h1>
+        <div class="settings-table">
+            <button class="settings-light" onclick="setTheme('light')">Group</button>
+            <button class="settings-light" style="margin-left: 10px;" onclick="setTheme('dark')">Channel</button>
+        </div>
+        <h1 class="settings-table-title">Contacts</h1>
+        <div class="settings-table">
+            <button class="settings-light">User2</button>
+            <button class="settings-light" style="margin-left: 10px;">User3</button>
+            <button class="settings-light" style="margin-left: 10px;">User4</button>
+            <button class="settings-light" style="margin-left: 10px;">User5</button>
+            <button class="settings-light" style="margin-left: 10px;">User6</button>
         </div>
     </div>
     <div class="left">
@@ -32,27 +52,27 @@
         </div>
         <div class="left-bottom">
             <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/200x200?sig=1" alt="">
+                <img src="https://source.unsplash.com/random/400x400?sig=1" alt="">
                 <h1>User1</h1>
             </div>
             <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/200x200?sig=2" alt="">
+                <img src="https://source.unsplash.com/random/400x400?sig=2" alt="">
                 <h1>User2</h1>
             </div>
             <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/200x200?sig=3" alt="">
+                <img src="https://source.unsplash.com/random/400x400?sig=3" alt="">
                 <h1>User3</h1>
             </div>
             <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/200x200?sig=4" alt="">
+                <img src="https://source.unsplash.com/random/400x400?sig=4" alt="">
                 <h1>User4</h1>
             </div>
             <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/200x200?sig=5" alt="">
+                <img src="https://source.unsplash.com/random/400x400?sig=5" alt="">
                 <h1>User5</h1>
             </div>
             <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/200x200?sig=6" alt="">
+                <img src="https://source.unsplash.com/random/400x400?sig=6" alt="">
                 <h1>User6</h1>
             </div>
         </div>
@@ -67,44 +87,44 @@
                 src="https://img.icons8.com/metro/26/FFFFFF/long-arrow-up.png" />
             <img onclick="openChatsM()" class="arrow-left-m"
                 src="https://img.icons8.com/metro/26/FFFFFF/long-arrow-up.png" />
-            <img class="user_profile" src="https://source.unsplash.com/random/200x200?sig=1" alt="">
+            <img class="user_profile" src="https://source.unsplash.com/random/400x400?sig=1" alt="">
             <h1>User1</h1>
         </div>
         <div class="right-center">
             <div class="my-message">
-                <div>Assalomu Alaykum</div>
+                <div class="my-mini-message">Assalomu Alaykum</div>
             </div>
             <div class="other-message">
-                <div>Vaalaykum Assalom</div>
+                <div class="other-mini-message">Vaalaykum Assalom</div>
             </div>
             <div class="my-message">
-                <div>Ishla qale?</div>
+                <div class="my-mini-message">Ishla qale?</div>
             </div>
             <div class="other-message">
-                <div>Zorku</div>
+                <div class="other-mini-message">Zorku</div>
             </div>
             <div class="my-message">
-                <div>Zor bosa zorde</div>
+                <div class="my-mini-message">Zor bosa zorde</div>
             </div>
             <div class="other-message">
-                <div>salom</div>
+                <div class="other-mini-message">salom</div>
             </div>
             <div class="my-message">
-                <div>Salom</div>
+                <div class="my-mini-message">Salom</div>
             </div>
             <div class="other-message">
-                <div>Salom</div>
+                <div class="other-mini-message">Salom</div>
             </div>
             <div class="my-message">
-                <div>Salom</div>
+                <div class="my-mini-message">Salom</div>
             </div>
             <div class="other-message">
-                <div>😉</div>
+                <div class="other-mini-message">😉</div>
             </div>
         </div>
         <div class="right-bottom">
             <input class="message-writer" id="create-message" type="text" placeholder="Write your message here...">
-            <button class="message-sender" id="send-message" onclick="sendMessageByButton()">SEND</button>
+            <button class="message-sender" id="send-message" onclick="sendMessageByButton()"><img width="30px" src="./images/send.png" alt="send"></button>
         </div>
     </div>
     <script src="./script/auto.js"></script>

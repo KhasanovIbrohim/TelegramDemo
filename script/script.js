@@ -11,6 +11,10 @@ const createMessage = document.getElementById("create-message");
 const rightCenter = document.querySelector('.right-center')
 const SettingsButton = document.querySelector('.settings-button')
 const renderAllChats = document.querySelectorAll('.render-chats')
+const myMessages = document.querySelectorAll('.my-mini-message')
+const otherMessages = document.querySelectorAll('.other-mini-message')
+const settingsBack = document.querySelector('.settings-back')
+const sendMessageBtn = document.getElementById('send-message')
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     chats.style.width = "100%";
@@ -28,10 +32,10 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     localStorage.setItem("isMobile", /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 }
 
-function checkTheme(){
+function checkTheme() {
     if (JSON.stringify(localStorage.getItem("telegramTheme")) == `"light"`) {
         setTheme('light')
-    } else if(JSON.stringify(localStorage.getItem("telegramTheme")) == `"dark"`) {
+    } else if (JSON.stringify(localStorage.getItem("telegramTheme")) == `"dark"`) {
         setTheme('dark')
     }
 }
@@ -82,25 +86,34 @@ function closeChatsM() {
 
 createMessage.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-        var inputValue = event.target.value;
-        const myMessage = document.createElement("div")
-        myMessage.className = "my-message"
-        const messageText = document.createElement("div")
-        messageText.textContent = inputValue;
-        createMessage.value = ""
-        myMessage.appendChild(messageText)
-        rightCenter.appendChild(myMessage)
+        if (createMessage.value == "") {
+            sendMessageBtn.style.backgroundColor = "#EB3942"
+        } else {
+            sendMessageBtn.style.backgroundColor = "#3390ec"
+            const myMessage = document.createElement("div")
+            myMessage.className = "my-message"
+            const messageText = document.createElement("div")
+            messageText.textContent = createMessage.value;
+            createMessage.value = ""
+            myMessage.appendChild(messageText)
+            rightCenter.appendChild(myMessage)
+        }
     }
 });
 
 function sendMessageByButton() {
-    const myMessage = document.createElement("div")
-    myMessage.className = "my-message"
-    const messageText = document.createElement("div")
-    messageText.textContent = createMessage.value;
-    createMessage.value = ""
-    myMessage.appendChild(messageText)
-    rightCenter.appendChild(myMessage)
+    if (createMessage.value == "") {
+        sendMessageBtn.style.backgroundColor = "#EB3942"
+    } else {
+        sendMessageBtn.style.backgroundColor = "#3390ec"
+        const myMessage = document.createElement("div")
+        myMessage.className = "my-message"
+        const messageText = document.createElement("div")
+        messageText.textContent = createMessage.value;
+        createMessage.value = ""
+        myMessage.appendChild(messageText)
+        rightCenter.appendChild(myMessage)
+    }
 }
 
 function openSettings(isOpen) {
@@ -115,8 +128,8 @@ function openSettings(isOpen) {
     }
 }
 
-function setTheme(theme){
-    if(theme == 'light') {
+function setTheme(theme) {
+    if (theme == 'light') {
         messages.style.backgroundImage = "url('./images/lighttheme.png')";
         SettingsBox.style.display = "none"
         chats.style.display = "block"
@@ -125,11 +138,21 @@ function setTheme(theme){
         leftTop.style.backgroundColor = "#3390ec"
         SettingsButton.style.backgroundColor = "#3390ec"
         createMessage.style.backgroundColor = "white"
-        for(let i = 0; i < renderAllChats.length; i++){
+        for (let i = 0; i < renderAllChats.length; i++) {
             renderAllChats[i].className = "render-chats";
         }
+        for (let i = 0; i < myMessages.length; i++) {
+            myMessages[i].style.backgroundColor = "#EFFDDE"
+            myMessages[i].style.color = "black"
+        }
+        for (let i = 0; i < otherMessages.length; i++) {
+            otherMessages[i].style.backgroundColor = "white"
+            otherMessages[i].style.color = "black"
+        }
+        SettingsBox.style.backgroundColor = "white"
+        settingsBack.style.backgroundColor = "white"
         localStorage.setItem("telegramTheme", 'light');
-    } else if(theme == 'dark') {
+    } else if (theme == 'dark') {
         messages.style.backgroundImage = "url('./images/darktheme.png')";
         SettingsBox.style.display = "none"
         chats.style.display = "block"
@@ -138,9 +161,19 @@ function setTheme(theme){
         leftTop.style.backgroundColor = "#0E1621"
         SettingsButton.style.backgroundColor = "#0E1621"
         createMessage.style.backgroundColor = "#17212B"
-        for(let i = 0; i < renderAllChats.length; i++){
+        for (let i = 0; i < renderAllChats.length; i++) {
             renderAllChats[i].className = "render-chats-dark";
         }
+        for (let i = 0; i < myMessages.length; i++) {
+            myMessages[i].style.backgroundColor = "#2B5278"
+            myMessages[i].style.color = "white"
+        }
+        for (let i = 0; i < otherMessages.length; i++) {
+            otherMessages[i].style.backgroundColor = "#182533"
+            otherMessages[i].style.color = "white"
+        }
+        SettingsBox.style.backgroundColor = "#0E1621"
+        settingsBack.style.backgroundColor = "#0E1621"
         localStorage.setItem("telegramTheme", 'dark');
     } else {
         console.log("Error! Send name of theme!")
