@@ -102,12 +102,17 @@ function openSettings(isOpen) {
     }
 }
 
+const renderChats = document.querySelectorAll("left-bottom.render-chats"); 
+
 function setTheme(theme){
     if(theme == 'light') {
         messages.style.backgroundImage = "url('./images/lighttheme.png')";
+        SettingsBox.style.display = "none"
+        chats.style.display = "block"
     } else if(theme == 'dark') {
-        chats.style.backgroundColor = "black"
         messages.style.backgroundImage = "url('./images/darktheme.png')";
+        SettingsBox.style.display = "none"
+        chats.style.display = "block"
     } else {
         console.log("Error! Send name of theme!")
     }
