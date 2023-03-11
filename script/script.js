@@ -4,6 +4,7 @@ const chats = document.querySelector('.left')
 const messages = document.querySelector('.right')
 const arrowLeftM = document.querySelector('.arrow-left-m')
 const arrowRightM = document.querySelector('.arrow-right-m')
+const SettingsBox = document.querySelector(".settings")
 
 function openChats() {
     arrowLeft.style.display = "none"
@@ -17,6 +18,7 @@ function closeChats() {
     arrowRight.style.display = "none"
     chats.style.display = "none"
     messages.style.width = "100%"
+    SettingsBox.style.display = "none"
 }
 
 function openMessages() {
@@ -65,20 +67,20 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 var createMessage = document.getElementById("create-message");
 const rightCenter = document.querySelector('.right-center')
 
-createMessage.addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    var inputValue = event.target.value;
-    const myMessage = document.createElement("div")
-    myMessage.className = "my-message"
-    const messageText = document.createElement("div")
-    messageText.textContent = inputValue;
-    createMessage.value = ""
-    myMessage.appendChild(messageText)
-    rightCenter.appendChild(myMessage)
-  }
+createMessage.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        var inputValue = event.target.value;
+        const myMessage = document.createElement("div")
+        myMessage.className = "my-message"
+        const messageText = document.createElement("div")
+        messageText.textContent = inputValue;
+        createMessage.value = ""
+        myMessage.appendChild(messageText)
+        rightCenter.appendChild(myMessage)
+    }
 });
 
-function sendMessageByButton(){
+function sendMessageByButton() {
     const myMessage = document.createElement("div")
     myMessage.className = "my-message"
     const messageText = document.createElement("div")
@@ -86,4 +88,27 @@ function sendMessageByButton(){
     createMessage.value = ""
     myMessage.appendChild(messageText)
     rightCenter.appendChild(myMessage)
+}
+
+function openSettings(isOpen) {
+    if (isOpen) {
+        SettingsBox.style.display = "block"
+        chats.style.display = "none"
+    } else if (!isOpen) {
+        SettingsBox.style.display = "none"
+        chats.style.display = "block"
+    } else {
+        console.error("Send boolean!")
+    }
+}
+
+function setTheme(theme){
+    if(theme == 'light') {
+        messages.style.backgroundImage = "url('./images/lighttheme.png')";
+    } else if(theme == 'dark') {
+        chats.style.backgroundColor = "black"
+        messages.style.backgroundImage = "url('./images/darktheme.png')";
+    } else {
+        console.log("Error! Send name of theme!")
+    }
 }

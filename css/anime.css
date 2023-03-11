@@ -12,3 +12,7 @@
         opacity: 1;
     }
 }
+
+.settings {
+    animation: left-animation 0.3s ease;
+}
