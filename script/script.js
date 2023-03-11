@@ -1,3 +1,4 @@
+const body = document.querySelector("body")
 const arrowLeft = document.querySelector('.arrow-left')
 const arrowRight = document.querySelector('.arrow-right')
 const chats = document.querySelector('.left')
@@ -143,6 +144,7 @@ function openSettings(isOpen) {
 
 function setTheme(theme) {
     if (theme == 'light') {
+        body.style.backgroundColor = "white"
         messages.style.backgroundImage = "url('./images/lighttheme.png')";
         SettingsBox.style.display = "none"
         chats.style.display = "block"
@@ -166,6 +168,7 @@ function setTheme(theme) {
         settingsBack.style.backgroundColor = "white"
         localStorage.setItem("telegramTheme", 'light');
     } else if (theme == 'dark') {
+        body.style.backgroundColor = "#17212B"
         messages.style.backgroundImage = "url('./images/darktheme.png')";
         SettingsBox.style.display = "none"
         chats.style.display = "block"
