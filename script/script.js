@@ -5,6 +5,38 @@ const messages = document.querySelector('.right')
 const arrowLeftM = document.querySelector('.arrow-left-m')
 const arrowRightM = document.querySelector('.arrow-right-m')
 const SettingsBox = document.querySelector(".settings")
+const rightTop = document.querySelector('.right-top')
+const leftTop = document.querySelector('.left-top')
+const createMessage = document.getElementById("create-message");
+const rightCenter = document.querySelector('.right-center')
+const SettingsButton = document.querySelector('.settings-button')
+const renderAllChats = document.querySelectorAll('.render-chats')
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    chats.style.width = "100%";
+    messages.style.display = "none";
+    arrowRight.style.display = "none";
+    arrowLeft.style.display = "none";
+    arrowRightM.style.display = "block";
+    arrowLeftM.style.display = "none";
+    localStorage.setItem("isMobile", /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+} else {
+    arrowRight.style.display = "block";
+    arrowLeft.style.display = "none";
+    arrowRightM.style.display = "none";
+    arrowLeftM.style.display = "none";
+    localStorage.setItem("isMobile", /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+}
+
+function checkTheme(){
+    if (JSON.stringify(localStorage.getItem("telegramTheme")) == `"light"`) {
+        setTheme('light')
+    } else if(JSON.stringify(localStorage.getItem("telegramTheme")) == `"dark"`) {
+        setTheme('dark')
+    }
+}
+
+checkTheme()
 
 function openChats() {
     arrowLeft.style.display = "none"
@@ -48,25 +80,6 @@ function closeChatsM() {
     messages.style.width = "100%"
 }
 
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    chats.style.width = "100%";
-    messages.style.display = "none";
-    arrowRight.style.display = "none";
-    arrowLeft.style.display = "none";
-    arrowRightM.style.display = "block";
-    arrowLeftM.style.display = "none";
-    localStorage.setItem("isMobile", /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-} else {
-    arrowRight.style.display = "block";
-    arrowLeft.style.display = "none";
-    arrowRightM.style.display = "none";
-    arrowLeftM.style.display = "none";
-    localStorage.setItem("isMobile", /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-}
-
-var createMessage = document.getElementById("create-message");
-const rightCenter = document.querySelector('.right-center')
-
 createMessage.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         var inputValue = event.target.value;
@@ -102,17 +115,33 @@ function openSettings(isOpen) {
     }
 }
 
-const renderChats = document.querySelectorAll("left-bottom.render-chats"); 
-
 function setTheme(theme){
     if(theme == 'light') {
         messages.style.backgroundImage = "url('./images/lighttheme.png')";
         SettingsBox.style.display = "none"
         chats.style.display = "block"
+        chats.style.backgroundColor = "white"
+        rightTop.style.backgroundColor = "#3390ec"
+        leftTop.style.backgroundColor = "#3390ec"
+        SettingsButton.style.backgroundColor = "#3390ec"
+        createMessage.style.backgroundColor = "white"
+        for(let i = 0; i < renderAllChats.length; i++){
+            renderAllChats[i].className = "render-chats";
+        }
+        localStorage.setItem("telegramTheme", 'light');
     } else if(theme == 'dark') {
         messages.style.backgroundImage = "url('./images/darktheme.png')";
         SettingsBox.style.display = "none"
         chats.style.display = "block"
+        chats.style.backgroundColor = "#17212B"
+        rightTop.style.backgroundColor = "#0E1621"
+        leftTop.style.backgroundColor = "#0E1621"
+        SettingsButton.style.backgroundColor = "#0E1621"
+        createMessage.style.backgroundColor = "#17212B"
+        for(let i = 0; i < renderAllChats.length; i++){
+            renderAllChats[i].className = "render-chats-dark";
+        }
+        localStorage.setItem("telegramTheme", 'dark');
     } else {
         console.log("Error! Send name of theme!")
     }
