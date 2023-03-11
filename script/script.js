@@ -117,14 +117,27 @@ function sendMessageByButton() {
 }
 
 function openSettings(isOpen) {
-    if (isOpen) {
-        SettingsBox.style.display = "block"
-        chats.style.display = "none"
-    } else if (!isOpen) {
-        SettingsBox.style.display = "none"
-        chats.style.display = "block"
+    if (JSON.parse(localStorage.getItem("isMobile"))) {
+        if (isOpen) {
+            SettingsBox.style.display = "block"
+            chats.style.display = "none"
+            SettingsBox.style.width = "100%"
+        } else if (!isOpen) {
+            SettingsBox.style.display = "none"
+            chats.style.display = "block"
+        } else {
+            console.error("Send boolean!")
+        }
     } else {
-        console.error("Send boolean!")
+        if (isOpen) {
+            SettingsBox.style.display = "block"
+            chats.style.display = "none"
+        } else if (!isOpen) {
+            SettingsBox.style.display = "none"
+            chats.style.display = "block"
+        } else {
+            console.error("Send boolean!")
+        }
     }
 }
 
