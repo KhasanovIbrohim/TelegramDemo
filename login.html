@@ -5,8 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TelegramDemo - Login</title>
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
-    
+    <div class="login-body">
+        <div class="login-box">
+            <div class="loginmini">
+                <h1 class="login-title">Log In</h1>
+                <input class="login-email" type="email" placeholder="Write your email">
+                <button class="login-button" onclick="sendEmail()">Send</button>
+            </div>
+            <div class="loginfailed">
+                <h1 class="login-title">Something went wrong!❌</h1>
+                <button class="retry-button" onclick="retryLogin()">Retry</button>
+            </div>
+            <div class="loginaccept">
+                <h1 class="login-title">Successfully, Signed!✅</h1>
+                <button class="retry-button" onclick="retryLogin()">Retry</button>
+            </div>
+        </div>
+    </div>
+    <script src="./script/login.js"></script>
 </body>
 </html>

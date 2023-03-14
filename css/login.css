@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.login-body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(217deg, rgba(255,255,255,.8), rgba(255,0,0,0) 70.71%),            
+                linear-gradient(127deg, rgba(51,144,236,.8), rgba(0,255,0,0) 70.71%),            
+                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-box {
+    background-image: url("../images/logindark.webp");
+    border-radius: 20px;
+    width: 500px;
+    height: 600px;
+}
+
+.loginmini {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(100px);
+    border-radius: 20px;
+    flex-wrap: wrap;
+}
+
+.login-title {
+    font-weight: 300;
+    text-align: center;
+    font-size: 70px;
+    padding-top: 120px;
+    width: ;
+    color: white;
+}
+
+.login-email {
+    background-color: white;
+    outline: none;
+    border: none;
+    font-size: 30px;
+    width: 300px;
+    margin-left: 80px;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+
+.login-button {
+    margin-top: 60px;
+    font-size: 30px;
+    width: 150px;
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin-left: 175px;
+    transition: all 0.5s ease;
+}
+
+.login-button:hover {
+    color: white;
+    background: linear-gradient(217deg, rgba(255,255,255,.8), rgba(255,0,0,0) 70.71%),            
+                linear-gradient(127deg, rgba(51,144,236,.8), rgba(0,255,0,0) 70.71%),            
+                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    cursor: pointer;
+}
+
+.loginfailed {
+    display: none;
+    backdrop-filter: blur(100px);
+    animation: 0.5s login_failed ease;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes login_failed {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.loginaccept {
+    display: none;
+    backdrop-filter: blur(100px);
+    animation: 0.5s login_success ease;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes login_success {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.retry-button {
+    margin-top: 60px;
+    font-size: 30px;
+    width: 150px;
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin-left: 175px;
+    transition: all 0.5s ease;
+}
+
+.retry-button:hover {
+    color: red;
+    cursor: pointer;        
+}
