@@ -210,15 +210,14 @@ function setTheme(theme) {
 
 
 
-const openModalBtn = document.getElementById("openModalBtn");
-const closeModalBtn = document.getElementById("closeModalBtn");
+
 const modal = document.getElementById("modal");
 
-openModalBtn.onclick = function() {
-  modal.style.display = "block";
+function openModal(){
+    modal.style.display = "block";
 }
 
-closeModalBtn.onclick = function() {
+function closeModal() {
   modal.style.display = "none";
 }
 
