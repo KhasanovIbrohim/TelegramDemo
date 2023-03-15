@@ -21,9 +21,9 @@
         <h1 class="settings-table-title">Biography</h1>
         <img class="setting-bio-photo" src="https://source.unsplash.com/random/400x400?sig=1" alt="">
         <div class="settings-table">
-            <button class="settings-light" onclick="setTheme('light')">User1</button>
-            <button class="settings-light" onclick="setTheme('dark')">@username1</button>   
-            <button class="settings-light" onclick="setTheme('dark')">Volk ne tot kto lev a tot kto volk</button>   
+            <button class="settings-light">User1</button>
+            <button class="settings-light">@username1</button>
+            <button class="settings-light">Volk ne tot kto lev a tot kto volk</button>
         </div>
         <h1 class="settings-table-title">Themes</h1>
         <div class="settings-table">
@@ -32,8 +32,8 @@
         </div>
         <h1 class="settings-table-title">Create</h1>
         <div class="settings-table">
-            <button class="settings-light" onclick="setTheme('light')">Group</button>
-            <button class="settings-light" onclick="setTheme('dark')">Channel</button>
+            <button class="settings-light">Group</button>
+            <button class="settings-light">Channel</button>
         </div>
         <h1 class="settings-table-title">Contacts</h1>
         <div class="settings-table">
@@ -121,10 +121,18 @@
             <div class="other-message">
                 <div class="other-mini-message">😉</div>
             </div>
+            <button id="openModalBtn">Open Modal</button>
         </div>
         <div class="right-bottom">
             <input class="message-writer" id="create-message" type="text" placeholder="Write your message here...">
-            <button class="message-sender" id="send-message" onclick="sendMessageByButton()"><img width="30px" src="./images/send.png" alt="send"></button>
+            <button class="message-sender" id="send-message" onclick="sendMessageByButton()"><img width="30px"
+                    src="./images/send.png" alt="send"></button>
+        </div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <p>Create Group</p>
+                <button id="closeModalBtn" class="close">&times;</button>   
+            </div>
         </div>
     </div>
     <script src="./script/auto.js"></script>
