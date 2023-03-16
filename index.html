@@ -44,6 +44,10 @@
             <button class="settings-light">User5</button>
             <button class="settings-light">User6</button>
         </div>
+        <h1 class="settings-table-title">Account</h1>
+        <div class="settings-table">
+            <button class="settings-light" onclick="logOut()">Log Out</button>
+        </div>
     </div>
     <div class="left">
         <div class="left-top">
@@ -150,6 +154,19 @@
             </div>
         </div>
     </div>
+    <script>
+        function indexRedirect() {
+            if (!JSON.parse(window.localStorage.getItem('userInfo'))) {
+                window.location.href = 'registration.html';
+                window.localStorage.removeItem("userId")
+                window.localStorage.removeItem("telegramTheme")
+                return;
+            }else {
+                return;
+            }
+        }
+        indexRedirect()
+    </script>
     <script src="./script/auto.js"></script>
     <script src="./script/script.js"></script>
 </body>

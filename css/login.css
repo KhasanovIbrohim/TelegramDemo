@@ -199,8 +199,21 @@
     cursor: pointer;        
 }
 
+.gotoregister {
+  color: white;
+  font-size: 20px;
+  background-color: rgba(255,255,255,0.0);
+  border: none;
+  width: 300px;
+  margin-left: 100px;
+  margin-top: 50px;
+  cursor: pointer;
+}
 
-
+.gotoregister span {
+  color: #3390ec;
+  border-bottom: 2px dashed #3390ec;
+}
 
 
 

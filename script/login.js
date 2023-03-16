@@ -29,7 +29,6 @@ function sendEmail() {
             .then(res => res.json())
             .then(data => {
                 localStorage.setItem("userId", data.object.id);
-                console.log(data)
                 if (data.success) {
                     LoginFail.style.display = "none"
                     LoginMini.style.display = "none"
@@ -66,7 +65,6 @@ emailSender.addEventListener("keydown", function (event) {
                 .then(res => res.json())
                 .then(data => {
                     localStorage.setItem("userId", data.object.id);
-                    console.log(data)
                     if (data.success) {
                         LoginFail.style.display = "none"
                         LoginMini.style.display = "none"
@@ -104,15 +102,25 @@ codeGiver.addEventListener("keydown", function (event) {
                             LoginSeccess.style.display = "block"
                             LoginCode.style.display = "none"
                             LoginCode.style.display = 'none'
+                            const userInfo = {
+                                email: data.object.email,
+                                name: data.object.firstName,
+                                surname: data.object.secondName,
+                                isOnline: data.object.isOnline,
+                                userName: data.object.username,
+                                bio: data.object.bio
+                            }
+                            localStorage.setItem("userInfo", JSON.stringify(userInfo));
                             setTimeout(() => {
                                 window.location = "index.html"
                             }, 3000)
-                        } else {
+                        } else {    
                             LoginCode.style.display = 'none'
                             LoginFail.style.display = "block"
                             LoginMini.style.display = "none"
                             LoginSeccess.style.display = "none"
                             LoginCode.style.display = "none"
+                            localStorage.removeItem("userId");
                         }
                     })
             } catch (e) {
@@ -141,6 +149,15 @@ function sendCode() {
                         LoginSeccess.style.display = "block"
                         LoginCode.style.display = "none"
                         LoginCode.style.display = 'none'
+                        const userInfo = {
+                            "email": data.object.email,
+                            "name": data.object.firstName,
+                            "surname": data.object.secondName,
+                            "isOnline": data.object.isOnline,
+                            "userName": data.object.username,
+                            "bio": data.object.bio
+                        }
+                        localStorage.setItem("userInfo", JSON.stringify(userInfo));
                         setTimeout(() => {
                             window.location = "index.html"
                         }, 3000)
@@ -150,6 +167,7 @@ function sendCode() {
                         LoginMini.style.display = "none"
                         LoginSeccess.style.display = "none"
                         LoginCode.style.display = "none"
+                        localStorage.removeItem("userId");
                     }
                 })
         } catch (e) {
@@ -169,4 +187,8 @@ function retryLogin() {
     codeSender.style.backgroundColor = "white"
     codeSender.style.color = "black"
     LoginCode.style.display = 'none'
+}
+
+function goRegister(){
+    window.location = "registration.html"
 }

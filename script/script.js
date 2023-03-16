@@ -256,3 +256,8 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+function logOut() {
+    window.localStorage.removeItem("userInfo")
+    window.location.reload();
+}
