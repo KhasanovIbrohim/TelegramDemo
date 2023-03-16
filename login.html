@@ -15,13 +15,19 @@
                 <input class="login-email" type="email" placeholder="Write your email">
                 <button class="login-button" onclick="sendEmail()">Send</button>
             </div>
+            <div class="logincode">
+                <h1 class="login-code-title">Check your email</h1>
+                <p class="login-code-text">Confirm that this is exactly your account</p>
+                <input class="code-input" type="text" placeholder="Write code here">
+                <button class="code-button" onclick="sendCode()">Send</button>
+            </div>
             <div class="loginfailed">
                 <h1 class="login-title">Something went wrong!❌</h1>
                 <button class="retry-button" onclick="retryLogin()">Retry</button>
             </div>
             <div class="loginaccept">
                 <h1 class="login-title">Successfully, Signed!✅</h1>
-                <button class="retry-button" onclick="retryLogin()">Retry</button>
+                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             </div>
         </div>
     </div>

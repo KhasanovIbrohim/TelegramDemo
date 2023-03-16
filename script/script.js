@@ -16,6 +16,7 @@ const myMessages = document.querySelectorAll('.my-mini-message')
 const otherMessages = document.querySelectorAll('.other-mini-message')
 const settingsBack = document.querySelector('.settings-back')
 const sendMessageBtn = document.getElementById('send-message')
+const SettingsTitle = document.querySelector('.settings-theme-title')
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     chats.style.width = "100%";
@@ -38,6 +39,8 @@ function checkTheme() {
         setTheme('light')
     } else if (JSON.stringify(localStorage.getItem("telegramTheme")) == `"dark"`) {
         setTheme('dark')
+    }else if (JSON.stringify(localStorage.getItem("telegramTheme")) == `"plus"`) {
+        setTheme('plus')
     }
 }
 
@@ -166,6 +169,7 @@ function setTheme(theme) {
         }
         SettingsBox.style.backgroundColor = "white"
         settingsBack.style.backgroundColor = "white"
+        SettingsTitle.style.color = "#3390ec"
         localStorage.setItem("telegramTheme", 'light');
     } else if (theme == 'dark') {
         body.style.backgroundColor = "#17212B"
@@ -190,7 +194,33 @@ function setTheme(theme) {
         }
         SettingsBox.style.backgroundColor = "#0E1621"
         settingsBack.style.backgroundColor = "#0E1621"
+        SettingsTitle.style.color = "#3390ec"
         localStorage.setItem("telegramTheme", 'dark');
+    }else if (theme == 'plus') {
+        body.style.backgroundColor = "#009688"
+        messages.style.backgroundImage = "url('./images/plustheme.jpg')";
+        SettingsBox.style.display = "none"
+        chats.style.display = "block"
+        chats.style.backgroundColor = "white"
+        rightTop.style.backgroundColor = "#009688"
+        leftTop.style.backgroundColor = "#009688"
+        SettingsButton.style.backgroundColor = "#009688"
+        createMessage.style.backgroundColor = "white"
+        for (let i = 0; i < renderAllChats.length; i++) {
+            renderAllChats[i].className = "render-chats-plus";
+        }
+        for (let i = 0; i < myMessages.length; i++) {
+            myMessages[i].style.backgroundColor = "#B2E0DE"
+            myMessages[i].style.color = "black"
+        }
+        for (let i = 0; i < otherMessages.length; i++) {
+            otherMessages[i].style.backgroundColor = "white"
+            otherMessages[i].style.color = "black"
+        }
+        SettingsBox.style.backgroundColor = "white"
+        settingsBack.style.backgroundColor = "white"
+        SettingsTitle.style.color = "#009688"
+        localStorage.setItem("telegramTheme", 'plus');
     } else {
         console.log("Error! Send name of theme!")
     }

@@ -1,9 +1,13 @@
 const emailSender = document.querySelector(".login-email")
 const emailButton = document.querySelector(".login-button")
+const codeGiver = document.querySelector('.code-input')
+const codeSender = document.querySelector('.code-button')
 
 const LoginMini = document.querySelector('.loginmini')
 const LoginFail = document.querySelector('.loginfailed')
 const LoginSeccess = document.querySelector('.loginaccept')
+const LoginCode = document.querySelector(".logincode")
+const url = "http://localhost:8080"
 
 function sendEmail() {
     if (emailSender.value == "") {
@@ -12,15 +16,32 @@ function sendEmail() {
     } else {
         emailButton.style.backgroundColor = "green"
         emailButton.style.color = "white"
-        if (emailSender.value == "123") {
-            LoginFail.style.display = "block"
-            LoginMini.style.display = "none"
-            LoginSeccess.style.display = "none"
-        } else if (emailSender.value == "321") {
-            LoginFail.style.display = "none"
-            LoginMini.style.display = "none"
-            LoginSeccess.style.display = "block"
-        }
+        fetch(`${url}/auth/login`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "email": emailSender.value
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                localStorage.setItem("userId", data.object.id);
+                console.log(data)
+                if (data.success) {
+                    LoginFail.style.display = "none"
+                    LoginMini.style.display = "none"
+                    LoginSeccess.style.display = "none"
+                    LoginCode.style.display = "block"
+                } else {
+                    LoginFail.style.display = "block"
+                    LoginMini.style.display = "none"
+                    LoginSeccess.style.display = "none"
+                    LoginCode.style.display = "none"
+                }
+            })
     }
 }
 
@@ -32,18 +53,110 @@ emailSender.addEventListener("keydown", function (event) {
         } else {
             emailButton.style.backgroundColor = "green"
             emailButton.style.color = "white"
-            if (emailSender.value == "123") {
-                LoginFail.style.display = "block"
-                LoginMini.style.display = "none"
-                LoginSeccess.style.display = "none"
-            } else if (emailSender.value == "321") {
-                LoginFail.style.display = "none"
-                LoginMini.style.display = "none"
-                LoginSeccess.style.display = "block"
+            fetch(`${url}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "email": emailSender.value
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    localStorage.setItem("userId", data.object.id);
+                    console.log(data)
+                    if (data.success) {
+                        LoginFail.style.display = "none"
+                        LoginMini.style.display = "none"
+                        LoginSeccess.style.display = "none"
+                        LoginCode.style.display = "block"
+                    } else {
+                        LoginFail.style.display = "block"
+                        LoginMini.style.display = "none"
+                        LoginSeccess.style.display = "none"
+                        LoginCode.style.display = "none"
+                    }
+                })
+        }
+    }
+});
+
+
+codeGiver.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        if (codeGiver.value == "") {
+            codeSender.style.backgroundColor = "#EB3942"
+            codeSender.style.color = "white"
+        } else {
+            const userId = JSON.stringify(localStorage.getItem("userId"))
+            const userNewId = userId.slice(1, userId.length - 1);
+            try {
+                fetch(url + `/auth/check/${userNewId}/${codeGiver.value}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            codeSender.style.backgroundColor = "green"
+                            codeSender.style.color = "white"
+                            LoginFail.style.display = "none"
+                            LoginMini.style.display = "none"
+                            LoginSeccess.style.display = "block"
+                            LoginCode.style.display = "none"
+                            LoginCode.style.display = 'none'
+                            setTimeout(() => {
+                                window.location = "index.html"
+                            }, 3000)
+                        } else {
+                            LoginCode.style.display = 'none'
+                            LoginFail.style.display = "block"
+                            LoginMini.style.display = "none"
+                            LoginSeccess.style.display = "none"
+                            LoginCode.style.display = "none"
+                        }
+                    })
+            } catch (e) {
+                console.error(e.message)
             }
         }
     }
 });
+
+function sendCode() {
+    if (codeGiver.value == "") {
+        codeSender.style.backgroundColor = "#EB3942"
+        codeSender.style.color = "white"
+    } else {
+        const userId = JSON.stringify(localStorage.getItem("userId"))
+        const userNewId = userId.slice(1, userId.length - 1);
+        try {
+            fetch(url + `/auth/check/${userNewId}/${codeGiver.value}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        codeSender.style.backgroundColor = "green"
+                        codeSender.style.color = "white"
+                        LoginFail.style.display = "none"
+                        LoginMini.style.display = "none"
+                        LoginSeccess.style.display = "block"
+                        LoginCode.style.display = "none"
+                        LoginCode.style.display = 'none'
+                        setTimeout(() => {
+                            window.location = "index.html"
+                        }, 3000)
+                    } else {
+                        LoginCode.style.display = 'none'
+                        LoginFail.style.display = "block"
+                        LoginMini.style.display = "none"
+                        LoginSeccess.style.display = "none"
+                        LoginCode.style.display = "none"
+                    }
+                })
+        } catch (e) {
+            console.error(e.message)
+        }
+    }
+}
 
 function retryLogin() {
     LoginFail.style.display = "none"
@@ -52,4 +165,8 @@ function retryLogin() {
     emailSender.value = ""
     emailButton.style.backgroundColor = "white"
     emailButton.style.color = "black"
+    codeGiver.value = ""
+    codeSender.style.backgroundColor = "white"
+    codeSender.style.color = "black"
+    LoginCode.style.display = 'none'
 }
