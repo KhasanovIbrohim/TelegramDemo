@@ -17,6 +17,13 @@ const otherMessages = document.querySelectorAll('.other-mini-message')
 const settingsBack = document.querySelector('.settings-back')
 const sendMessageBtn = document.getElementById('send-message')
 const SettingsTitle = document.querySelector('.settings-theme-title')
+const settingsName = document.querySelector("#settings-name")
+const settingsUserName = document.querySelector("#settings-username")
+const settingsBio = document.querySelector("#settings-bio")
+const search = document.querySelector('.search')
+const searchingInput = document.querySelector('.searchingInput')
+const searchingButton = document.querySelector('.searchingButton')
+const url = "http://localhost:8080"
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     chats.style.width = "100%";
@@ -39,18 +46,41 @@ function checkTheme() {
         setTheme('light')
     } else if (JSON.stringify(localStorage.getItem("telegramTheme")) == `"dark"`) {
         setTheme('dark')
-    }else if (JSON.stringify(localStorage.getItem("telegramTheme")) == `"plus"`) {
+    } else if (JSON.stringify(localStorage.getItem("telegramTheme")) == `"plus"`) {
         setTheme('plus')
     }
 }
 
 checkTheme()
 
+function getUserInfo() {
+    settingsName.textContent = JSON.parse(window.localStorage.getItem("userInfo")).name
+    settingsUserName.textContent = JSON.parse(window.localStorage.getItem("userInfo")).userName
+    if (JSON.parse(window.localStorage.getItem("userInfo")).bio == null) {
+        settingsBio.textContent = "Your biography"
+    }
+}
+
+getUserInfo()
+
+// try {
+//     const userId = JSON.stringify(localStorage.getItem("userId"))
+//     const userNewId = userId.slice(1, userId.length - 1);
+//     fetch(`${url}/personal_chat/get-chats/${userNewId}`)
+//         .then(res => res.json())
+//         .then(data => {
+//             console.log(data)
+//         })
+// } catch (e) {
+//     console.error(e.message)
+// }
+
 function openChats() {
     arrowLeft.style.display = "none"
     arrowRight.style.display = "block"
     chats.style.display = "block"
     messages.style.width = "70%"
+    search.style.display = "none"
 }
 
 function closeChats() {
@@ -59,6 +89,7 @@ function closeChats() {
     chats.style.display = "none"
     messages.style.width = "100%"
     SettingsBox.style.display = "none"
+    search.style.display = "none"
 }
 
 function openMessages() {
@@ -68,6 +99,7 @@ function openMessages() {
         arrowRightM.style.display = "none"
         chats.style.display = "none"
         messages.style.width = "100%"
+        search.style.display = "none"
     } else {
         closeChats()
     }
@@ -136,7 +168,38 @@ function openSettings(isOpen) {
         if (isOpen) {
             SettingsBox.style.display = "block"
             chats.style.display = "none"
+            search.style.width = "30%"
         } else if (!isOpen) {
+            SettingsBox.style.display = "none"
+            chats.style.display = "block"
+        } else {
+            console.error("Send boolean!")
+        }
+    }
+}
+
+function openSearch(isOpen) {
+    if (JSON.parse(localStorage.getItem("isMobile"))) {
+        if (isOpen) {
+            search.style.display = "block"
+            SettingsBox.style.display = "none"
+            chats.style.display = "none"
+            search.style.width = "100%"
+        } else if (!isOpen) {
+            search.style.display = "none"
+            SettingsBox.style.display = "none"
+            chats.style.display = "block"
+        } else {
+            console.error("Send boolean!")
+        }
+    } else {
+        if (isOpen) {
+            search.style.display = "block"
+            SettingsBox.style.display = "none"
+            chats.style.display = "none"
+            search.style.width = "30%"
+        } else if (!isOpen) {
+            search.style.display = "none"
             SettingsBox.style.display = "none"
             chats.style.display = "block"
         } else {
@@ -196,7 +259,7 @@ function setTheme(theme) {
         settingsBack.style.backgroundColor = "#0E1621"
         SettingsTitle.style.color = "#3390ec"
         localStorage.setItem("telegramTheme", 'dark');
-    }else if (theme == 'plus') {
+    } else if (theme == 'plus') {
         body.style.backgroundColor = "#009688"
         messages.style.backgroundImage = "url('./images/plustheme.jpg')";
         SettingsBox.style.display = "none"
@@ -226,35 +289,40 @@ function setTheme(theme) {
     }
 }
 
+function sendSearch() {
+    const searchValue = "" + searchingInput.value
+    if (!searchValue.startsWith("@")) {
+        console.log("@" + searchValue)
+    } else {
+        console.log(searchValue)
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+searchingInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        const searchValue = "" + searchingInput.value
+        if (!searchValue.startsWith("@")) {
+            console.log("@" + searchValue)
+        } else {
+            console.log(searchValue)
+        }
+    }
+});
 
 const modal = document.getElementById("modal");
 
-function openModal(){
+function openModal() {
     modal.style.display = "block";
 }
 
 function closeModal() {
-  modal.style.display = "none";
+    modal.style.display = "none";
 }
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 function logOut() {

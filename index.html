@@ -21,9 +21,9 @@
         <h1 class="settings-table-title">Biography</h1>
         <img class="setting-bio-photo" src="https://source.unsplash.com/random/400x400?sig=1" alt="">
         <div class="settings-table">
-            <button class="settings-light">User1</button>
-            <button class="settings-light">@username1</button>
-            <button class="settings-light">Volk ne tot kto lev a tot kto volk</button>
+            <button class="settings-light" id="settings-name">User1</button>
+            <button class="settings-light" id="settings-username">@username1</button>
+            <button class="settings-light" id="settings-bio">Volk ne tot kto lev a tot kto volk</button>
         </div>
         <h1 class="settings-table-title">Themes</h1>
         <div class="settings-table">
@@ -49,11 +49,22 @@
             <button class="settings-light" onclick="logOut()">Log Out</button>
         </div>
     </div>
+    <div class="search">
+        <div class="search-box">
+            <h1 class="search-title">Search users</h1>
+        </div>
+        <div class="search-box">
+            <button class="closeSearch"><img src="./images/closesearch.png" alt="close" onclick="openSearch(false)"></button>
+            <input class="searchingInput" type="text" placeholder="Type @username...">
+            <button class="searchingButton" onclick="sendSearch()"><img src="./images/searchbutton.png" alt="search"></button>
+        </div>
+    </div>
     <div class="left">
         <div class="left-top">
             <button class="settings-button" onclick="openSettings(true)"><img
                     src="https://img.icons8.com/material-sharp/48/FFFFFF/gear.png" /></button>
             <h1>Telegram</h1>
+            <button class="search-button" onclick="openSearch(true)"><img src="./images/search.png" alt="search"></button>
         </div>
         <div class="left-bottom">
             <div class="render-chats" onclick="openMessages()">

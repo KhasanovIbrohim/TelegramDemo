@@ -26,6 +26,13 @@ function register() {
     } else {
         sendUser.style.background = "gold"
         try {
+            const NewuserName = userName.value
+            const iUsername = ""
+            if (!NewuserName.startsWith("@")) {
+                iUsername = "@" + NewuserName
+            } else {
+                iUsername = NewuserName
+            }
             fetch(`${url}/user/sign-up`, {
                     method: 'POST',
                     headers: {
@@ -33,7 +40,7 @@ function register() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        "userName": userName.value,
+                        "userName": iUsername,
                         "firstName": firstName.value,
                         "secondName": secondName.value,
                         "email": userEmail.value
