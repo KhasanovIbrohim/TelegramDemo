@@ -7,6 +7,7 @@ const LoginMini = document.querySelector('.loginmini')
 const LoginFail = document.querySelector('.loginfailed')
 const LoginSeccess = document.querySelector('.loginaccept')
 const LoginCode = document.querySelector(".logincode")
+const LoginTitle = document.querySelector("#success-title")
 const url = "http://localhost:8080"
 
 function sendEmail() {
@@ -112,9 +113,12 @@ codeGiver.addEventListener("keydown", function (event) {
                             }
                             localStorage.setItem("userInfo", JSON.stringify(userInfo));
                             setTimeout(() => {
+                                LoginTitle.textContent = "Welcome " + data.object.firstName + " " + data.object.secondName;
+                            }, 2000)
+                            setTimeout(() => {
                                 window.location = "index.html"
-                            }, 3000)
-                        } else {    
+                            }, 4000)
+                        } else {
                             LoginCode.style.display = 'none'
                             LoginFail.style.display = "block"
                             LoginMini.style.display = "none"
@@ -159,8 +163,11 @@ function sendCode() {
                         }
                         localStorage.setItem("userInfo", JSON.stringify(userInfo));
                         setTimeout(() => {
+                            LoginTitle.textContent = "Welcome " + data.object.firstName + " " + data.object.secondName; 
+                        }, 2000)
+                        setTimeout(() => {
                             window.location = "index.html"
-                        }, 3000)
+                        }, 4000)
                     } else {
                         LoginCode.style.display = 'none'
                         LoginFail.style.display = "block"
@@ -189,6 +196,6 @@ function retryLogin() {
     LoginCode.style.display = 'none'
 }
 
-function goRegister(){
+function goRegister() {
     window.location = "registration.html"
 }

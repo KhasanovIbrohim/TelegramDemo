@@ -24,15 +24,14 @@ function register() {
         userEmail.style.boxShadow = "0px 0px 1px 4px red"
         registerStatus.textContent = "Write email!"
     } else {
+        let iUsername = ""
+        if (!userName.value.startsWith("@")) {
+            iUsername = "@" + userName.value
+        } else {
+            iUsername = userName.value
+        }
         sendUser.style.background = "gold"
         try {
-            const NewuserName = userName.value
-            const iUsername = ""
-            if (!NewuserName.startsWith("@")) {
-                iUsername = "@" + NewuserName
-            } else {
-                iUsername = NewuserName
-            }
             fetch(`${url}/user/sign-up`, {
                     method: 'POST',
                     headers: {
@@ -48,10 +47,10 @@ function register() {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    if(data.success){
+                    if (data.success) {
                         sendUser.style.background = "green"
                         window.location = "login.html"
-                    }else {
+                    } else {
                         sendUser.style.background = "red"
                         registerStatus.textContent = data.message
                     }
@@ -62,6 +61,6 @@ function register() {
     }
 }
 
-function goLogin(){
+function goLogin() {
     window.location = "login.html"
 }

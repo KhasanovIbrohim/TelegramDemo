@@ -42,11 +42,11 @@
             <button class="settings-light">User3</button>
             <button class="settings-light">User4</button>
             <button class="settings-light">User5</button>
-            <button class="settings-light">User6</button>
+            <button class="settings-light">User7</button>
         </div>
         <h1 class="settings-table-title">Account</h1>
         <div class="settings-table">
-            <button class="settings-light" onclick="logOut()">Log Out</button>
+            <button class="settings-light" style="margin-bottom: 30px;" onclick="logOut()">Log Out</button>
         </div>
     </div>
     <div class="search">
@@ -54,9 +54,14 @@
             <h1 class="search-title">Search users</h1>
         </div>
         <div class="search-box">
-            <button class="closeSearch"><img src="./images/closesearch.png" alt="close" onclick="openSearch(false)"></button>
+            <button class="closeSearch"><img src="./images/closesearch.png" alt="close"
+                    onclick="openSearch(false)"></button>
             <input class="searchingInput" type="text" placeholder="Type @username...">
-            <button class="searchingButton" onclick="sendSearch()"><img src="./images/searchbutton.png" alt="search"></button>
+            <button class="searchingButton" onclick="sendSearch()"><img src="./images/searchbutton.png"
+                    alt="search"></button>
+        </div>
+        <div class="search-render">
+            
         </div>
     </div>
     <div class="left">
@@ -64,33 +69,10 @@
             <button class="settings-button" onclick="openSettings(true)"><img
                     src="https://img.icons8.com/material-sharp/48/FFFFFF/gear.png" /></button>
             <h1>Telegram</h1>
-            <button class="search-button" onclick="openSearch(true)"><img src="./images/search.png" alt="search"></button>
+            <button class="search-button" onclick="openSearch(true)"><img src="./images/search.png"
+                    alt="search"></button>
         </div>
         <div class="left-bottom">
-            <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/400x400?sig=1" alt="">
-                <h1>User1</h1>
-            </div>
-            <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/400x400?sig=2" alt="">
-                <h1>User2</h1>
-            </div>
-            <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/400x400?sig=3" alt="">
-                <h1>User3</h1>
-            </div>
-            <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/400x400?sig=4" alt="">
-                <h1>User4</h1>
-            </div>
-            <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/400x400?sig=5" alt="">
-                <h1>User5</h1>
-            </div>
-            <div class="render-chats" onclick="openMessages()">
-                <img src="https://source.unsplash.com/random/400x400?sig=6" alt="">
-                <h1>User6</h1>
-            </div>
         </div>
     </div>
     <div class="right">
@@ -134,10 +116,28 @@
             <div class="my-message">
                 <div class="my-mini-message">Salom</div>
             </div>
+            <div class="my-message">
+                <div class="my-mini-message">Salom</div>
+            </div>
+            <div class="my-message">
+                <div class="my-mini-message">Salom</div>
+            </div>
+            <div class="my-message">
+                <div class="my-mini-message">Salom</div>
+            </div>
+            <div class="my-message">
+                <div class="my-mini-message">Salom</div>
+            </div>
+            <div class="my-message">
+                <div class="my-mini-message">Salom</div>
+            </div>
+            <div class="my-message">
+                <div class="my-mini-message">Salom</div>
+            </div>
             <div class="other-message">
                 <div class="other-mini-message">😉</div>
             </div>
-            <button id="openModalBtn" onclick="openModal()">Open Modal</button>   
+            <button id="openModalBtn" onclick="openModal()">Open Modal</button>
         </div>
         <div class="right-bottom">
             <input class="message-writer" id="create-message" type="text" placeholder="Write your message here...">
@@ -147,21 +147,7 @@
         <div id="modal" class="modal">
             <div class="modal-content">
                 <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <p>Create Group</p>
-                <button id="closeModalBtn" onclick="closeModal()" class="close">&times;</button>   
+                <button id="closeModalBtn" onclick="closeModal()" class="close">&times;</button>
             </div>
         </div>
     </div>
@@ -172,7 +158,7 @@
                 window.localStorage.removeItem("userId")
                 window.localStorage.removeItem("telegramTheme")
                 return;
-            }else {
+            } else {
                 return;
             }
         }

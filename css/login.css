@@ -215,6 +215,21 @@
   border-bottom: 2px dashed #3390ec;
 }
 
+#success-title {
+  padding-top: 80px;
+  animation: success_title 0.3s ease;
+}
+
+@keyframes success_title {
+  0% {
+    opacity: 0;
+    transform: scale(0.0);
+  } 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
 
 
